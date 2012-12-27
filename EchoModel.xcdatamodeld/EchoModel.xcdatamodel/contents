@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="0.1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Atrium" parentEntity="CardiacContext" syncable="YES">
+        <attribute name="onLeftSide" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CardiacContext" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="middlename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mrn" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="outsideStudy" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SeptalDefect" parentEntity="Septum" syncable="YES">
+        <attribute name="properType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shunting" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sizeA" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sizeB" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sizeC" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="viewA" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="viewB" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="viewC" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Septum" syncable="YES">
+        <attribute name="alignment" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Ventricle" parentEntity="CardiacContext" syncable="YES">
+        <attribute name="efa2c" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="efa4c" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fs" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="looping" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CardiacContext" positionX="-5706" positionY="-6154" width="128" height="133"/>
+        <element name="Atrium" positionX="-5841" positionY="-5986" width="128" height="73"/>
+        <element name="Ventricle" positionX="-5582" positionY="-5998" width="128" height="103"/>
+        <element name="SeptalDefect" positionX="-5798" positionY="-5761" width="128" height="163"/>
+        <element name="Septum" positionX="-5715" positionY="-5859" width="128" height="58"/>
+    </elements>
+</model>
