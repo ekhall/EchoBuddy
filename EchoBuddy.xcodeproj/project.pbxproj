@@ -10,6 +10,7 @@
 		AE3A5A02168CF605001A6411 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3A5A01168CF605001A6411 /* CoreData.framework */; };
 		AE3A5A08168CF7E7001A6411 /* EchoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE3A5A06168CF7E7001A6411 /* EchoModel.xcdatamodeld */; };
 		AE3A5A0B168CFBEA001A6411 /* EchoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3A5A0A168CFBEA001A6411 /* EchoDetailViewController.m */; };
+		AE3A5A0D168D12C8001A6411 /* Notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = AE3A5A0C168D12C8001A6411 /* Notes.txt */; };
 		AE3E70F21687B8EA009F35FF /* navigation-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE3E70F11687B8EA009F35FF /* navigation-bar@2x.png */; };
 		AE3E70F61687B963009F35FF /* navigation-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = AE3E70F51687B963009F35FF /* navigation-bar.png */; };
 		AE3E70FD1687CF8D009F35FF /* settingsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE3E70FB1687CF8D009F35FF /* settingsIcon@2x.png */; };
@@ -32,6 +33,7 @@
 		AE3A5A07168CF7E7001A6411 /* EchoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EchoModel.xcdatamodel; sourceTree = "<group>"; };
 		AE3A5A09168CFBEA001A6411 /* EchoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EchoDetailViewController.h; sourceTree = "<group>"; };
 		AE3A5A0A168CFBEA001A6411 /* EchoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EchoDetailViewController.m; sourceTree = "<group>"; };
+		AE3A5A0C168D12C8001A6411 /* Notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes.txt; sourceTree = "<group>"; };
 		AE3E70F11687B8EA009F35FF /* navigation-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar@2x.png"; sourceTree = "<group>"; };
 		AE3E70F51687B963009F35FF /* navigation-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar.png"; sourceTree = "<group>"; };
 		AE3E70FB1687CF8D009F35FF /* settingsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsIcon@2x.png"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				AE91534F1687B2800016AAB3 /* StudiesListingViewController.m */,
 				AE91533A1687B1040016AAB3 /* AppDelegate.h */,
 				AE91533B1687B1040016AAB3 /* AppDelegate.m */,
+				AE3A5A0C168D12C8001A6411 /* Notes.txt */,
 				AE9153431687B1040016AAB3 /* MainStoryboard.storyboard */,
 				AE3A5A06168CF7E7001A6411 /* EchoModel.xcdatamodeld */,
 				AE9153321687B1040016AAB3 /* Supporting Files */,
@@ -200,6 +203,7 @@
 				AE3E70F61687B963009F35FF /* navigation-bar.png in Resources */,
 				AE3E70FD1687CF8D009F35FF /* settingsIcon@2x.png in Resources */,
 				AE3E70FE1687CF8D009F35FF /* settingsIcon.png in Resources */,
+				AE3A5A0D168D12C8001A6411 /* Notes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
