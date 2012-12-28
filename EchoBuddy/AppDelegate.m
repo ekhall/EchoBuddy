@@ -87,10 +87,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    // Setting up custom UI
     UIImage *navBarImage = [UIImage imageNamed:@"navigation-bar.png"];
     [[UINavigationBar appearance] setBackgroundImage:navBarImage
                                       forBarMetrics:UIBarMetricsDefault];
-    
+    UIImage *backButton = [[UIImage imageNamed:@"backButton.png"]
+                           resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 7)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton
+                                                      forState:UIControlStateNormal
+                                                    barMetrics:UIBarMetricsDefault];
+    // Setting up VCs
     UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
     StudiesListingViewController *studiesListingViewController = (StudiesListingViewController *)[[navController viewControllers] objectAtIndex:0];
     studiesListingViewController.managedObjectContext = self.managedObjectContext;

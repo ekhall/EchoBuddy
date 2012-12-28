@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EchoDetailViewController : UIViewController
+@interface EchoDetailViewController : UITableViewController
 
 @property (nonatomic, strong)NSManagedObjectContext *managedObjectContext;
 

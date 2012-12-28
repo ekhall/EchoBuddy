@@ -27,9 +27,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"createNewEcho"]) {
         NSLog(@"inside segue");
-        UINavigationController *navController = segue.destinationViewController;
+        EchoDetailViewController *controller = segue.destinationViewController;
         
-        EchoDetailViewController *controller = (EchoDetailViewController *)navController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
         controller.navigationItem.title = @"Create New Echo";
     }
@@ -50,7 +49,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

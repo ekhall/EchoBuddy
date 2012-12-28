@@ -27,27 +27,42 @@
                     <navigationItem key="navigationItem" id="S9o-xO-k1N"/>
                     <connections>
                         <outlet property="echoListingTableView" destination="rBJ-KG-564" id="Jdg-eR-cjX"/>
-                        <segue destination="AQW-3f-zqr" kind="modal" identifier="createNewEcho" id="zBr-B5-L9E"/>
+                        <segue destination="iAJ-xN-QsW" kind="push" identifier="createNewEcho" id="gK4-0v-pbh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yV5-d1-FWT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="255" y="100"/>
         </scene>
-        <!--Echo Detail View Controller - Detail-->
-        <scene sceneID="L0S-DK-Ux6">
+        <!--Echo Detail View Controller-->
+        <scene sceneID="E9i-uy-mJ0">
             <objects>
-                <viewController id="aeI-vt-PVo" customClass="EchoDetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dqr-cj-1hj">
+                <tableViewController id="iAJ-xN-QsW" customClass="EchoDetailViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PGv-YH-oZ0">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Detail" id="7HX-Zf-3w3"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v7B-41-AdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="clU-Z7-aDt">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="iAJ-xN-QsW" id="dR1-p8-P80"/>
+                            <outlet property="delegate" destination="iAJ-xN-QsW" id="ofw-P1-7QB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="h4t-Vh-Vea"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ytv-36-HyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1095" y="105"/>
+            <point key="canvasLocation" x="1116" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4e-rf-y50">
@@ -67,34 +82,15 @@
             </objects>
             <point key="canvasLocation" x="-139" y="100"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xuO-OT-yv2">
-            <objects>
-                <navigationController id="AQW-3f-zqr" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RfT-b6-efl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aeI-vt-PVo" kind="relationship" relationship="rootViewController" id="rqg-4l-e70"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FW8-gG-7HJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="725" y="100"/>
-        </scene>
     </scenes>
     <classes>
-        <class className="EchoDetailViewController" superclassName="UIViewController">
+        <class className="EchoDetailViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EchoDetailViewController.h"/>
         </class>
         <class className="StudiesListingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StudiesListingViewController.h"/>
             <relationships>
                 <relationship kind="action" name="createNewEchoInstance:"/>
-                <relationship kind="outlet" name="cellLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="echoListingTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
