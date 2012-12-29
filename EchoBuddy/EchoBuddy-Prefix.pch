@@ -14,7 +14,13 @@
     #import <CoreLocation/CoreLocation.h>
     #import <CoreData/CoreData.h>
     #import <MapKit/MapKit.h>
+    #import <QuartzCore/QuartzCore.h>
 #endif
+
+#define YELLOW_TEXT_COLOR [UIColor colorWithRed:246.0 green:236.0 blue:220.0 alpha:1.0]
+
+#define APP_FONT_18 [UIFont fontWithName:@"Avenir" size:18]
+#define APP_FONT_16 [UIFont fontWithName:@"Avenir" size:16]
 
 #define FATAL_CORE_DATA_ERROR(__error__)\
     NSLog(@"*** Fatal error in %s:%d\n%@\n%@", __FILE__, __LINE__, error, [error userInfo]);\

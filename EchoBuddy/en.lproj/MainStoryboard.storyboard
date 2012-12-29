@@ -27,7 +27,7 @@
                     <navigationItem key="navigationItem" id="S9o-xO-k1N"/>
                     <connections>
                         <outlet property="echoListingTableView" destination="rBJ-KG-564" id="Jdg-eR-cjX"/>
-                        <segue destination="iAJ-xN-QsW" kind="push" identifier="createNewEcho" id="gK4-0v-pbh"/>
+                        <segue destination="iuv-gf-kvc" kind="push" identifier="createNewEcho" id="tHZ-eJ-n9S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yV5-d1-FWT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -35,34 +35,22 @@
             <point key="canvasLocation" x="255" y="100"/>
         </scene>
         <!--Echo Detail View Controller-->
-        <scene sceneID="E9i-uy-mJ0">
+        <scene sceneID="mJi-Py-2QN">
             <objects>
-                <tableViewController id="iAJ-xN-QsW" customClass="EchoDetailViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PGv-YH-oZ0">
+                <tableViewController id="iuv-gf-kvc" customClass="EchoDetailViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Qbx-NZ-GtW">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="clU-Z7-aDt">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="iAJ-xN-QsW" id="dR1-p8-P80"/>
-                            <outlet property="delegate" destination="iAJ-xN-QsW" id="ofw-P1-7QB"/>
+                            <outlet property="dataSource" destination="iuv-gf-kvc" id="HeM-qv-Ge9"/>
+                            <outlet property="delegate" destination="iuv-gf-kvc" id="geE-92-589"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="h4t-Vh-Vea"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ytv-36-HyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tmt-rR-idu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="100"/>
+            <point key="canvasLocation" x="673" y="102"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4e-rf-y50">
@@ -90,7 +78,6 @@
         <class className="StudiesListingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StudiesListingViewController.h"/>
             <relationships>
-                <relationship kind="action" name="createNewEchoInstance:"/>
                 <relationship kind="outlet" name="echoListingTableView" candidateClass="UITableView"/>
             </relationships>
         </class>

@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		AE38E785168E538B00866951 /* backButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE38E783168E538B00866951 /* backButton@2x.png */; };
 		AE38E786168E538B00866951 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AE38E784168E538B00866951 /* backButton.png */; };
+		AE38E78D168F245E00866951 /* tableViewBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE38E789168F245E00866951 /* tableViewBG@2x.png */; };
+		AE38E78E168F245E00866951 /* tableViewBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE38E78A168F245E00866951 /* tableViewBG.png */; };
+		AE38E791168F32E000866951 /* tableViewBG-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE38E78F168F32E000866951 /* tableViewBG-568h@2x.png */; };
+		AE38E792168F32E000866951 /* tableViewBG-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = AE38E790168F32E000866951 /* tableViewBG-568h.png */; };
+		AE38E794168F428300866951 /* tableViewCellBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE38E793168F428300866951 /* tableViewCellBG@2x.png */; };
+		AE38E797168F439500866951 /* EBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE38E796168F439500866951 /* EBTableViewCell.m */; };
+		AE38E79B168F4A9C00866951 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE38E79A168F4A9C00866951 /* QuartzCore.framework */; };
+		AE38E7A2168F5A5900866951 /* Separator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE38E7A0168F5A5900866951 /* Separator@2x.png */; };
+		AE38E7A3168F5A5900866951 /* Separator.png in Resources */ = {isa = PBXBuildFile; fileRef = AE38E7A1168F5A5900866951 /* Separator.png */; };
+		AE38E7A9168F683200866951 /* EBTableViewCell_Atrium.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE38E7A8168F683200866951 /* EBTableViewCell_Atrium.xib */; };
+		AE38E7AB168F685200866951 /* EBTableViewCell_Ventricle.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE38E7AA168F685200866951 /* EBTableViewCell_Ventricle.xib */; };
+		AE38E7AD168F6AB800866951 /* EBTableViewCell_GA.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE38E7AC168F6AB800866951 /* EBTableViewCell_GA.xib */; };
+		AE38E7B0168F6D4000866951 /* CardiacContext.m in Sources */ = {isa = PBXBuildFile; fileRef = AE38E7AF168F6D4000866951 /* CardiacContext.m */; };
 		AE3A5A02168CF605001A6411 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3A5A01168CF605001A6411 /* CoreData.framework */; };
 		AE3A5A08168CF7E7001A6411 /* EchoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE3A5A06168CF7E7001A6411 /* EchoModel.xcdatamodeld */; };
 		AE3A5A0B168CFBEA001A6411 /* EchoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3A5A0A168CFBEA001A6411 /* EchoDetailViewController.m */; };
@@ -33,6 +46,21 @@
 /* Begin PBXFileReference section */
 		AE38E783168E538B00866951 /* backButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backButton@2x.png"; sourceTree = "<group>"; };
 		AE38E784168E538B00866951 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
+		AE38E789168F245E00866951 /* tableViewBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableViewBG@2x.png"; sourceTree = "<group>"; };
+		AE38E78A168F245E00866951 /* tableViewBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableViewBG.png; sourceTree = "<group>"; };
+		AE38E78F168F32E000866951 /* tableViewBG-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableViewBG-568h@2x.png"; sourceTree = "<group>"; };
+		AE38E790168F32E000866951 /* tableViewBG-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableViewBG-568h.png"; sourceTree = "<group>"; };
+		AE38E793168F428300866951 /* tableViewCellBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableViewCellBG@2x.png"; sourceTree = "<group>"; };
+		AE38E795168F439500866951 /* EBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EBTableViewCell.h; path = ../EBTableViewCell.h; sourceTree = "<group>"; };
+		AE38E796168F439500866951 /* EBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EBTableViewCell.m; path = ../EBTableViewCell.m; sourceTree = "<group>"; };
+		AE38E79A168F4A9C00866951 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AE38E7A0168F5A5900866951 /* Separator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Separator@2x.png"; sourceTree = "<group>"; };
+		AE38E7A1168F5A5900866951 /* Separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Separator.png; sourceTree = "<group>"; };
+		AE38E7A8168F683200866951 /* EBTableViewCell_Atrium.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EBTableViewCell_Atrium.xib; path = ../EBTableViewCell_Atrium.xib; sourceTree = "<group>"; };
+		AE38E7AA168F685200866951 /* EBTableViewCell_Ventricle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EBTableViewCell_Ventricle.xib; path = ../EBTableViewCell_Ventricle.xib; sourceTree = "<group>"; };
+		AE38E7AC168F6AB800866951 /* EBTableViewCell_GA.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBTableViewCell_GA.xib; sourceTree = "<group>"; };
+		AE38E7AE168F6D4000866951 /* CardiacContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardiacContext.h; sourceTree = "<group>"; };
+		AE38E7AF168F6D4000866951 /* CardiacContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardiacContext.m; sourceTree = "<group>"; };
 		AE3A5A01168CF605001A6411 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AE3A5A07168CF7E7001A6411 /* EchoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EchoModel.xcdatamodel; sourceTree = "<group>"; };
 		AE3A5A09168CFBEA001A6411 /* EchoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EchoDetailViewController.h; sourceTree = "<group>"; };
@@ -65,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE38E79B168F4A9C00866951 /* QuartzCore.framework in Frameworks */,
 				AE3A5A02168CF605001A6411 /* CoreData.framework in Frameworks */,
 				AE91532C1687B1040016AAB3 /* UIKit.framework in Frameworks */,
 				AE91532E1687B1040016AAB3 /* Foundation.framework in Frameworks */,
@@ -75,9 +104,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE38E7B1168F6D5500866951 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE3A5A06168CF7E7001A6411 /* EchoModel.xcdatamodeld */,
+				AE38E7AE168F6D4000866951 /* CardiacContext.h */,
+				AE38E7AF168F6D4000866951 /* CardiacContext.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		AE3E70F41687B8F6009F35FF /* UI Images */ = {
 			isa = PBXGroup;
 			children = (
+				AE38E7A0168F5A5900866951 /* Separator@2x.png */,
+				AE38E7A1168F5A5900866951 /* Separator.png */,
+				AE38E793168F428300866951 /* tableViewCellBG@2x.png */,
+				AE38E78F168F32E000866951 /* tableViewBG-568h@2x.png */,
+				AE38E790168F32E000866951 /* tableViewBG-568h.png */,
+				AE38E789168F245E00866951 /* tableViewBG@2x.png */,
+				AE38E78A168F245E00866951 /* tableViewBG.png */,
 				AE38E783168E538B00866951 /* backButton@2x.png */,
 				AE38E784168E538B00866951 /* backButton.png */,
 				AE3E70FB1687CF8D009F35FF /* settingsIcon@2x.png */,
@@ -110,6 +156,7 @@
 		AE91532A1687B1040016AAB3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE38E79A168F4A9C00866951 /* QuartzCore.framework */,
 				AE3A5A01168CF605001A6411 /* CoreData.framework */,
 				AE91532B1687B1040016AAB3 /* UIKit.framework */,
 				AE91532D1687B1040016AAB3 /* Foundation.framework */,
@@ -121,6 +168,11 @@
 		AE9153311687B1040016AAB3 /* EchoBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				AE38E795168F439500866951 /* EBTableViewCell.h */,
+				AE38E796168F439500866951 /* EBTableViewCell.m */,
+				AE38E7A8168F683200866951 /* EBTableViewCell_Atrium.xib */,
+				AE38E7AA168F685200866951 /* EBTableViewCell_Ventricle.xib */,
+				AE38E7AC168F6AB800866951 /* EBTableViewCell_GA.xib */,
 				AE3A5A09168CFBEA001A6411 /* EchoDetailViewController.h */,
 				AE3A5A0A168CFBEA001A6411 /* EchoDetailViewController.m */,
 				AE91534E1687B2800016AAB3 /* StudiesListingViewController.h */,
@@ -129,7 +181,7 @@
 				AE91533B1687B1040016AAB3 /* AppDelegate.m */,
 				AE3A5A0C168D12C8001A6411 /* Notes.txt */,
 				AE9153431687B1040016AAB3 /* MainStoryboard.storyboard */,
-				AE3A5A06168CF7E7001A6411 /* EchoModel.xcdatamodeld */,
+				AE38E7B1168F6D5500866951 /* Model */,
 				AE9153321687B1040016AAB3 /* Supporting Files */,
 			);
 			path = EchoBuddy;
@@ -212,6 +264,16 @@
 				AE3A5A0D168D12C8001A6411 /* Notes.txt in Resources */,
 				AE38E785168E538B00866951 /* backButton@2x.png in Resources */,
 				AE38E786168E538B00866951 /* backButton.png in Resources */,
+				AE38E78D168F245E00866951 /* tableViewBG@2x.png in Resources */,
+				AE38E78E168F245E00866951 /* tableViewBG.png in Resources */,
+				AE38E791168F32E000866951 /* tableViewBG-568h@2x.png in Resources */,
+				AE38E792168F32E000866951 /* tableViewBG-568h.png in Resources */,
+				AE38E794168F428300866951 /* tableViewCellBG@2x.png in Resources */,
+				AE38E7A2168F5A5900866951 /* Separator@2x.png in Resources */,
+				AE38E7A3168F5A5900866951 /* Separator.png in Resources */,
+				AE38E7A9168F683200866951 /* EBTableViewCell_Atrium.xib in Resources */,
+				AE38E7AB168F685200866951 /* EBTableViewCell_Ventricle.xib in Resources */,
+				AE38E7AD168F6AB800866951 /* EBTableViewCell_GA.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +289,8 @@
 				AE9153501687B2800016AAB3 /* StudiesListingViewController.m in Sources */,
 				AE3A5A08168CF7E7001A6411 /* EchoModel.xcdatamodeld in Sources */,
 				AE3A5A0B168CFBEA001A6411 /* EchoDetailViewController.m in Sources */,
+				AE38E797168F439500866951 /* EBTableViewCell.m in Sources */,
+				AE38E7B0168F6D4000866951 /* CardiacContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EBTableViewCell.h"
+#import "CardiacContext.h"
 
 @interface EchoDetailViewController : UITableViewController
 
 @property (nonatomic, strong)NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong)CardiacContext *cardiacContextToEdit;
 
 @end

@@ -25,13 +25,16 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"createNewEcho"]) {
-        NSLog(@"inside segue");
-        EchoDetailViewController *controller = segue.destinationViewController;
-        
-        controller.managedObjectContext = self.managedObjectContext;
-        controller.navigationItem.title = @"Create New Echo";
-    }
+  if ([segue.identifier isEqualToString:@"createNewEcho"]) {
+    NSLog(@"inside segue");
+    EchoDetailViewController *controller = segue.destinationViewController;
+    
+    controller.managedObjectContext = self.managedObjectContext;
+    CardiacContext *cardiacContext = [NSEntityDescription insertNewObjectForEntityForName:@"CardiacContext"
+                                                                   inManagedObjectContext:self.managedObjectContext];
+    controller.cardiacContextToEdit = cardiacContext;
+    controller.navigationItem.title = @"Create New Echo";
+  }
 }
 
 #pragma mark - View Scaffolding
