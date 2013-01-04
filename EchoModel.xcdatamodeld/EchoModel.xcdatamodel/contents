@@ -4,7 +4,7 @@
         <attribute name="onLeftSide" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="type" attributeType="String" defaultValueString="&lt;unassigned>" syncable="YES"/>
         <relationship name="cardiacContext" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CardiacContext" inverseName="atrium" inverseEntity="CardiacContext" syncable="YES"/>
-        <relationship name="septum" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Septum" inverseName="atrium" inverseEntity="Septum" syncable="YES"/>
+        <relationship name="septum" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Septum" inverseName="atrium" inverseEntity="Septum" syncable="YES"/>
     </entity>
     <entity name="CardiacContext" representedClassName="CardiacContext" syncable="YES">
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="-3187234800" syncable="YES"/>

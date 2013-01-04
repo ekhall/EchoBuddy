@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EBTableViewCell.h"
 #import "CardiacContext.h"
+#import "Atrium.h"
 
 @interface EchoDetailViewController : UITableViewController
 

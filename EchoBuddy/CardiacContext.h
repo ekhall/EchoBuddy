@@ -13,8 +13,6 @@
 
 @interface CardiacContext : NSManagedObject
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSDate * dob;
 @property (nonatomic, retain) NSString * firstname;

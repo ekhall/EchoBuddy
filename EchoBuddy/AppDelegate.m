@@ -91,6 +91,8 @@
     UIImage *navBarImage = [UIImage imageNamed:@"navigation-bar.png"];
     [[UINavigationBar appearance] setBackgroundImage:navBarImage
                                       forBarMetrics:UIBarMetricsDefault];
+  
+  // Unsure if this part is needed.
     UIImage *backButton = [[UIImage imageNamed:@"backButton.png"]
                            resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 7)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton

@@ -119,9 +119,50 @@
   [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)createNewEchoInstance {
+  NSLog(@"Setting up new Echo Instance");
+  
+  // This should probably check for the default first and then delete before creating it.
+  CardiacContext *newContext = [NSEntityDescription insertNewObjectForEntityForName:@"CardiacContext"
+                                                      inManagedObjectContext:self.managedObjectContext];
+  Atrium *leftAtrium = [NSEntityDescription insertNewObjectForEntityForName:@"Atrium"
+                                                     inManagedObjectContext:self.managedObjectContext];
+  Atrium *rightAtrium = [NSEntityDescription insertNewObjectForEntityForName:@"Atrium"
+                                                      inManagedObjectContext:self.managedObjectContext];
+  rightAtrium.onLeftSide = [NSNumber numberWithBool:NO];
+  NSSet *atria = [NSSet setWithObjects:leftAtrium, rightAtrium, nil];
+  
+  [newContext addAtrium:atria];
+  
+  NSError *error;
+  if (![self.managedObjectContext save:&error]) {
+    NSLog(@"MOC Error: %@", error);
+    abort();
+  }
+  self.cardiacContext = newContext;
+  NSLog(@"Success! %@", self.cardiacContext);
+}
+
+- (void)populateDummies {
+  NSArray *surnames = @[@"Wilson", @"Talbut", @"Rumbles", @"Jovis", @"Dumpy"];
+  for (int i = 0; i < 5; i++) {
+    CardiacContext *newContext = [NSEntityDescription insertNewObjectForEntityForName:@"CardiacContext"
+                                                        inManagedObjectContext:self.managedObjectContext];
+    newContext.surname = [surnames objectAtIndex:i];
+    newContext.mrn = [NSString stringWithFormat:@"%d", i];
+    NSLog(@"created (%@, %@)", newContext.surname, newContext);
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+      NSLog(@"MOC Error: %@", error);
+      abort();
+    }
+  }
+}
+
 - (void)viewDidLoad {
   [super viewDidLoad];
 
+  [self populateDummies];
   
   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
     CGSize result = [[UIScreen mainScreen] bounds].size;
@@ -134,16 +175,7 @@
   }
   
   if (self.cardiacContext == nil) {
-    NSLog(@"Setting up new Echo Instance");
-    self.cardiacContext = [NSEntityDescription insertNewObjectForEntityForName:@"CardiacContext"
-                                                                   inManagedObjectContext:self.managedObjectContext];
-    self.cardiacContext.managedObjectContext = self.managedObjectContext;
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-      NSLog(@"MOC Error: %@", error);
-      abort();
-    }
-    NSLog(@"Success! %@", self.cardiacContext);
+    [self createNewEchoInstance];
   } else {
     // Load data into table cells;
     NSLog(@"Would load data into cells here");

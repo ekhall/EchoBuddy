@@ -11,8 +11,6 @@
 
 @implementation CardiacContext
 
-@synthesize managedObjectContext;
-
 @dynamic date;
 @dynamic dob;
 @dynamic firstname;
@@ -24,13 +22,16 @@
 @dynamic ventricle;
 
 - (void)awakeFromInsert {
+  
+  NSLog(@"Context CC: %@", self.managedObjectContext);
   self.date = [NSDate date];
   self.dob = [NSDate dateWithTimeIntervalSince1970:100];
-  self.firstname = @"John";
-  self.surname = @"Smith";
-  self.mrn = @"012345";
+  self.firstname = @"firstname";
+  self.surname = @"surname";
+  self.mrn = @"-1";
   self.outsideStudy = [NSNumber numberWithBool:YES];
-  self.middlename = @"Parker";
+  self.middlename = @"middlename";
+  
 }
 
 @end
