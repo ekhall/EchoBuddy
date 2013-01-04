@@ -22,6 +22,9 @@
 #define APP_FONT_18 [UIFont fontWithName:@"Avenir" size:18]
 #define APP_FONT_16 [UIFont fontWithName:@"Avenir" size:16]
 
+#define CALL_KEYS @[@"Info", @"Veins", @"Atrium", @"Ventricle", @"GA"]
+#define SECTION_KEYS @[@"Patient", @"Veins", @"Atria", @"Ventricles", @"Great Arteries"]
+
 #define FATAL_CORE_DATA_ERROR(__error__)\
     NSLog(@"*** Fatal error in %s:%d\n%@\n%@", __FILE__, __LINE__, error, [error userInfo]);\
     [(id)[[UIApplication sharedApplication] delegate] performSelector:@selector(fatalCoreDataError:) withObject:error];

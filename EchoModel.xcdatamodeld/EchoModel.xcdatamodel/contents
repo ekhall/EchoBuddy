@@ -1,52 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="0.1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Atrium" syncable="YES">
-        <attribute name="onLeftSide" attributeType="Boolean" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Atrium" representedClassName="Atrium" syncable="YES">
+        <attribute name="onLeftSide" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="type" attributeType="String" defaultValueString="&lt;unassigned>" syncable="YES"/>
         <relationship name="cardiacContext" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CardiacContext" inverseName="atrium" inverseEntity="CardiacContext" syncable="YES"/>
-        <relationship name="septum" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Septum" inverseName="atrium" inverseEntity="Septum" syncable="YES"/>
+        <relationship name="septum" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Septum" inverseName="atrium" inverseEntity="Septum" syncable="YES"/>
     </entity>
     <entity name="CardiacContext" representedClassName="CardiacContext" syncable="YES">
-        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="middlename" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="mrn" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="outsideStudy" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="atrium" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Atrium" inverseName="cardiacContext" inverseEntity="Atrium" syncable="YES"/>
-        <relationship name="ventricle" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ventricle" inverseName="cardiacContext" inverseEntity="Ventricle" syncable="YES"/>
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="-3187234800" syncable="YES"/>
+        <attribute name="dob" attributeType="Date" defaultDateTimeInterval="-3187234800" syncable="YES"/>
+        <attribute name="firstname" attributeType="String" defaultValueString="&lt;unassigned>" syncable="YES"/>
+        <attribute name="middlename" attributeType="String" defaultValueString="&lt;unassigned>" syncable="YES"/>
+        <attribute name="mrn" attributeType="String" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="outsideStudy" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="surname" attributeType="String" defaultValueString="&lt;unassigned>" syncable="YES"/>
+        <relationship name="atrium" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Atrium" inverseName="cardiacContext" inverseEntity="Atrium" syncable="YES"/>
+        <relationship name="ventricle" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Ventricle" inverseName="cardiacContext" inverseEntity="Ventricle" syncable="YES"/>
     </entity>
-    <entity name="SeptalDefect" syncable="YES">
-        <attribute name="properType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="shunting" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="SeptalDefect" representedClassName="SeptalDefect" syncable="YES">
+        <attribute name="properType" attributeType="String" defaultValueString="&lt;unassigned>" syncable="YES"/>
+        <attribute name="shunting" attributeType="String" defaultValueString="&lt;unassigned>" syncable="YES"/>
         <attribute name="sizeA" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="sizeB" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="sizeC" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="viewA" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="viewB" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="viewC" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="viewA" optional="YES" attributeType="String" defaultValueString="&lt;unassigned>" syncable="YES"/>
+        <attribute name="viewB" optional="YES" attributeType="String" defaultValueString="&lt;unassigned>" syncable="YES"/>
+        <attribute name="viewC" optional="YES" attributeType="String" defaultValueString="&lt;unassigned>" syncable="YES"/>
         <relationship name="septum" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Septum" inverseName="septalDefect" inverseEntity="Septum" syncable="YES"/>
     </entity>
-    <entity name="Septum" syncable="YES">
-        <attribute name="alignment" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Septum" representedClassName="Septum" syncable="YES">
+        <attribute name="alignment" attributeType="String" defaultValueString="&lt;unassigned>" syncable="YES"/>
         <relationship name="atrium" optional="YES" toMany="YES" maxCount="2" deletionRule="Nullify" destinationEntity="Atrium" inverseName="septum" inverseEntity="Atrium" syncable="YES"/>
-        <relationship name="septalDefect" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SeptalDefect" inverseName="septum" inverseEntity="SeptalDefect" syncable="YES"/>
+        <relationship name="septalDefect" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SeptalDefect" inverseName="septum" inverseEntity="SeptalDefect" syncable="YES"/>
         <relationship name="ventricle" toMany="YES" minCount="1" maxCount="2" deletionRule="Nullify" destinationEntity="Ventricle" inverseName="septum" inverseEntity="Ventricle" syncable="YES"/>
     </entity>
-    <entity name="Ventricle" syncable="YES">
-        <attribute name="efa2c" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="efa4c" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="fs" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="looping" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="onLeftSide" attributeType="Boolean" syncable="YES"/>
+    <entity name="Ventricle" representedClassName="Ventricle" syncable="YES">
+        <attribute name="efa2c" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="efa4c" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fs" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="looping" attributeType="String" defaultValueString="&lt;unassigned>" syncable="YES"/>
+        <attribute name="onLeftSide" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <relationship name="cardiacContext" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CardiacContext" inverseName="ventricle" inverseEntity="CardiacContext" syncable="YES"/>
-        <relationship name="septum" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Septum" inverseName="ventricle" inverseEntity="Septum" syncable="YES"/>
+        <relationship name="septum" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Septum" inverseName="ventricle" inverseEntity="Septum" syncable="YES"/>
     </entity>
     <elements>
         <element name="Atrium" positionX="-5877" positionY="-5989" width="128" height="103"/>
-        <element name="CardiacContext" positionX="-5672" positionY="-6192" width="128" height="163"/>
+        <element name="CardiacContext" positionX="-5672" positionY="-6192" width="128" height="178"/>
         <element name="SeptalDefect" positionX="-5861" positionY="-5697" width="128" height="178"/>
-        <element name="Septum" positionX="-5645" positionY="-5796" width="128" height="103"/>
+        <element name="Septum" positionX="-5645" positionY="-5800" width="128" height="103"/>
         <element name="Ventricle" positionX="-5463" positionY="-5998" width="128" height="148"/>
     </elements>
 </model>

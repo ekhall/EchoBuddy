@@ -10,4 +10,13 @@
 
 @interface EBTableViewCell : UITableViewCell
 
+// INFO CELL
+@property (weak, nonatomic) IBOutlet UILabel *fullnameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mrnLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dobLabel;
+
+// ATRIUM CELL
+@property (weak, nonatomic) IBOutlet UILabel *atrium;
+
+
 @end

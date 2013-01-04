@@ -9,10 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Atrium, Ventricle, Septum, SeptalDefect;
 
 @interface CardiacContext : NSManagedObject
 
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 @property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSDate * dob;
 @property (nonatomic, retain) NSString * firstname;
 @property (nonatomic, retain) NSString * middlename;
 @property (nonatomic, retain) NSString * mrn;
@@ -24,15 +28,13 @@
 
 @interface CardiacContext (CoreDataGeneratedAccessors)
 
-- (void)populateNewEchoInstance;
-
-- (void)addAtriumObject:(NSManagedObject *)value;
-- (void)removeAtriumObject:(NSManagedObject *)value;
+- (void)addAtriumObject:(Atrium *)value;
+- (void)removeAtriumObject:(Atrium *)value;
 - (void)addAtrium:(NSSet *)values;
 - (void)removeAtrium:(NSSet *)values;
 
-- (void)addVentricleObject:(NSManagedObject *)value;
-- (void)removeVentricleObject:(NSManagedObject *)value;
+- (void)addVentricleObject:(Ventricle *)value;
+- (void)removeVentricleObject:(Ventricle *)value;
 - (void)addVentricle:(NSSet *)values;
 - (void)removeVentricle:(NSSet *)values;
 

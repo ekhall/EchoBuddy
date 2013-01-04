@@ -22,6 +22,12 @@
 		AE38E7AB168F685200866951 /* EBTableViewCell_Ventricle.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE38E7AA168F685200866951 /* EBTableViewCell_Ventricle.xib */; };
 		AE38E7AD168F6AB800866951 /* EBTableViewCell_GA.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE38E7AC168F6AB800866951 /* EBTableViewCell_GA.xib */; };
 		AE38E7B0168F6D4000866951 /* CardiacContext.m in Sources */ = {isa = PBXBuildFile; fileRef = AE38E7AF168F6D4000866951 /* CardiacContext.m */; };
+		AE38E7B3168F879C00866951 /* EBTableViewCell_Info.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE38E7B2168F879C00866951 /* EBTableViewCell_Info.xib */; };
+		AE38E7B6168F887200866951 /* EBTableViewCell_Veins.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE38E7B5168F887200866951 /* EBTableViewCell_Veins.xib */; };
+		AE38E7BD16975C9800866951 /* Atrium.m in Sources */ = {isa = PBXBuildFile; fileRef = AE38E7BC16975C9800866951 /* Atrium.m */; };
+		AE38E7C016975CBE00866951 /* Ventricle.m in Sources */ = {isa = PBXBuildFile; fileRef = AE38E7BF16975CBE00866951 /* Ventricle.m */; };
+		AE38E7C316975CD100866951 /* Septum.m in Sources */ = {isa = PBXBuildFile; fileRef = AE38E7C216975CD100866951 /* Septum.m */; };
+		AE38E7C616975CDE00866951 /* SeptalDefect.m in Sources */ = {isa = PBXBuildFile; fileRef = AE38E7C516975CDE00866951 /* SeptalDefect.m */; };
 		AE3A5A02168CF605001A6411 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3A5A01168CF605001A6411 /* CoreData.framework */; };
 		AE3A5A08168CF7E7001A6411 /* EchoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE3A5A06168CF7E7001A6411 /* EchoModel.xcdatamodeld */; };
 		AE3A5A0B168CFBEA001A6411 /* EchoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3A5A0A168CFBEA001A6411 /* EchoDetailViewController.m */; };
@@ -61,6 +67,16 @@
 		AE38E7AC168F6AB800866951 /* EBTableViewCell_GA.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBTableViewCell_GA.xib; sourceTree = "<group>"; };
 		AE38E7AE168F6D4000866951 /* CardiacContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardiacContext.h; sourceTree = "<group>"; };
 		AE38E7AF168F6D4000866951 /* CardiacContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardiacContext.m; sourceTree = "<group>"; };
+		AE38E7B2168F879C00866951 /* EBTableViewCell_Info.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBTableViewCell_Info.xib; sourceTree = "<group>"; };
+		AE38E7B5168F887200866951 /* EBTableViewCell_Veins.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBTableViewCell_Veins.xib; sourceTree = "<group>"; };
+		AE38E7BB16975C9800866951 /* Atrium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Atrium.h; sourceTree = "<group>"; };
+		AE38E7BC16975C9800866951 /* Atrium.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Atrium.m; sourceTree = "<group>"; };
+		AE38E7BE16975CBE00866951 /* Ventricle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ventricle.h; sourceTree = "<group>"; };
+		AE38E7BF16975CBE00866951 /* Ventricle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ventricle.m; sourceTree = "<group>"; };
+		AE38E7C116975CD100866951 /* Septum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Septum.h; sourceTree = "<group>"; };
+		AE38E7C216975CD100866951 /* Septum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Septum.m; sourceTree = "<group>"; };
+		AE38E7C416975CDE00866951 /* SeptalDefect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeptalDefect.h; sourceTree = "<group>"; };
+		AE38E7C516975CDE00866951 /* SeptalDefect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeptalDefect.m; sourceTree = "<group>"; };
 		AE3A5A01168CF605001A6411 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AE3A5A07168CF7E7001A6411 /* EchoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EchoModel.xcdatamodel; sourceTree = "<group>"; };
 		AE3A5A09168CFBEA001A6411 /* EchoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EchoDetailViewController.h; sourceTree = "<group>"; };
@@ -110,8 +126,30 @@
 				AE3A5A06168CF7E7001A6411 /* EchoModel.xcdatamodeld */,
 				AE38E7AE168F6D4000866951 /* CardiacContext.h */,
 				AE38E7AF168F6D4000866951 /* CardiacContext.m */,
+				AE38E7C416975CDE00866951 /* SeptalDefect.h */,
+				AE38E7C516975CDE00866951 /* SeptalDefect.m */,
+				AE38E7C116975CD100866951 /* Septum.h */,
+				AE38E7C216975CD100866951 /* Septum.m */,
+				AE38E7BE16975CBE00866951 /* Ventricle.h */,
+				AE38E7BF16975CBE00866951 /* Ventricle.m */,
+				AE38E7BB16975C9800866951 /* Atrium.h */,
+				AE38E7BC16975C9800866951 /* Atrium.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		AE38E7B4168F885400866951 /* EBTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE38E795168F439500866951 /* EBTableViewCell.h */,
+				AE38E796168F439500866951 /* EBTableViewCell.m */,
+				AE38E7B2168F879C00866951 /* EBTableViewCell_Info.xib */,
+				AE38E7A8168F683200866951 /* EBTableViewCell_Atrium.xib */,
+				AE38E7AA168F685200866951 /* EBTableViewCell_Ventricle.xib */,
+				AE38E7AC168F6AB800866951 /* EBTableViewCell_GA.xib */,
+				AE38E7B5168F887200866951 /* EBTableViewCell_Veins.xib */,
+			);
+			name = EBTableViewCell;
 			sourceTree = "<group>";
 		};
 		AE3E70F41687B8F6009F35FF /* UI Images */ = {
@@ -168,11 +206,7 @@
 		AE9153311687B1040016AAB3 /* EchoBuddy */ = {
 			isa = PBXGroup;
 			children = (
-				AE38E795168F439500866951 /* EBTableViewCell.h */,
-				AE38E796168F439500866951 /* EBTableViewCell.m */,
-				AE38E7A8168F683200866951 /* EBTableViewCell_Atrium.xib */,
-				AE38E7AA168F685200866951 /* EBTableViewCell_Ventricle.xib */,
-				AE38E7AC168F6AB800866951 /* EBTableViewCell_GA.xib */,
+				AE38E7B4168F885400866951 /* EBTableViewCell */,
 				AE3A5A09168CFBEA001A6411 /* EchoDetailViewController.h */,
 				AE3A5A0A168CFBEA001A6411 /* EchoDetailViewController.m */,
 				AE91534E1687B2800016AAB3 /* StudiesListingViewController.h */,
@@ -274,6 +308,8 @@
 				AE38E7A9168F683200866951 /* EBTableViewCell_Atrium.xib in Resources */,
 				AE38E7AB168F685200866951 /* EBTableViewCell_Ventricle.xib in Resources */,
 				AE38E7AD168F6AB800866951 /* EBTableViewCell_GA.xib in Resources */,
+				AE38E7B3168F879C00866951 /* EBTableViewCell_Info.xib in Resources */,
+				AE38E7B6168F887200866951 /* EBTableViewCell_Veins.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +327,10 @@
 				AE3A5A0B168CFBEA001A6411 /* EchoDetailViewController.m in Sources */,
 				AE38E797168F439500866951 /* EBTableViewCell.m in Sources */,
 				AE38E7B0168F6D4000866951 /* CardiacContext.m in Sources */,
+				AE38E7BD16975C9800866951 /* Atrium.m in Sources */,
+				AE38E7C016975CBE00866951 /* Ventricle.m in Sources */,
+				AE38E7C316975CD100866951 /* Septum.m in Sources */,
+				AE38E7C616975CDE00866951 /* SeptalDefect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

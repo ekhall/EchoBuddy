@@ -30,28 +30,40 @@
     EchoDetailViewController *controller = segue.destinationViewController;
     
     controller.managedObjectContext = self.managedObjectContext;
-    CardiacContext *cardiacContext = [NSEntityDescription insertNewObjectForEntityForName:@"CardiacContext"
-                                                                   inManagedObjectContext:self.managedObjectContext];
-    controller.cardiacContextToEdit = cardiacContext;
+    controller.cardiacContext = nil;
     controller.navigationItem.title = @"Create New Echo";
+    
+    // Set the cancel button programmatically so I can erase the insert Core Data Entity
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+                                                                     style:UIBarButtonSystemItemAction
+                                                                    target:controller
+                                                                    action:@selector(cancelCreate:)];
+    UIImage *backButton = [[UIImage imageNamed:@"backButton.png"]
+                           resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 7)];
+    [cancelButton setBackgroundImage:backButton
+                            forState:UIControlStateNormal
+                          barMetrics:UIBarMetricsDefault];
+    controller.navigationItem.leftBarButtonItem = cancelButton;
   }
 }
 
 #pragma mark - View Scaffolding
 - (void)viewWillAppear:(BOOL)animated {
-    UIImage *settingsImage = [UIImage imageNamed:@"settingsIcon.png"];
-    UIButton *settingsView = [[UIButton alloc]
-                              initWithFrame:CGRectMake(0, 0, settingsImage.size.width, settingsImage.size.height)];
-    [settingsView setContentMode:UIViewContentModeCenter];
-    [settingsView addTarget:self action:@selector(createNewEchoInstance:) forControlEvents:UIControlEventTouchUpInside];
-    [settingsView setBackgroundImage:settingsImage forState:UIControlStateNormal];
-    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithCustomView:settingsView];
-    [self.navigationItem setRightBarButtonItem:settingsButton];
+  UIImage *settingsImage = [UIImage imageNamed:@"settingsIcon.png"];
+  UIButton *settingsView = [[UIButton alloc]
+                            initWithFrame:CGRectMake(0, 0, settingsImage.size.width, settingsImage.size.height)];
+  [settingsView setContentMode:UIViewContentModeCenter];
+  [settingsView addTarget:self action:@selector(createNewEchoInstance:) forControlEvents:UIControlEventTouchUpInside];
+  [settingsView setBackgroundImage:settingsImage forState:UIControlStateNormal];
+  UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithCustomView:settingsView];
+  [self.navigationItem setRightBarButtonItem:settingsButton];
+  
+
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning

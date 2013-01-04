@@ -10,56 +10,53 @@
 
 @interface EchoDetailViewController ()
 
+
 @end
 
-@implementation EchoDetailViewController 
+@implementation EchoDetailViewController {
+  NSArray *CellKeys;
+  NSArray *SectionKeys;
+  CardiacContext *cardiacContext;
+}
 
 #pragma mark - TableView Methods
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-  if (section == 0)
-    return @"Atria";
-  else if (section == 1)
-    return @"Ventricles";
-  else 
-    return @"Great Vessels";
-    
+  return [SectionKeys objectAtIndex:section];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   return 100;
 }
 
+- (EBTableViewCell *)setupCell:(EBTableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
+  
+  if (indexPath.section == 0) {
+    cell.fullnameLabel.text = [NSString stringWithFormat:@"%@, %@ %@", self.cardiacContext.surname,
+                          self.cardiacContext.firstname,
+                          self.cardiacContext.middlename];
+    cell.mrnLabel.text = self.cardiacContext.mrn;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setTimeStyle:NSDateFormatterNoStyle];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    cell.dobLabel.text = [formatter stringFromDate:self.cardiacContext.dob];
+    
+  }
+  
+  return cell;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-  if (indexPath.section == 0) {
-    static NSString *EBCellIdentifier_Info = @"EBCellIdentifier_Info";
-    EBTableViewCell *cell = (EBTableViewCell *)[tableView dequeueReusableCellWithIdentifier:EBCellIdentifier_Info];
-    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EBTableViewCell_Info" owner:self options:nil];
-    cell = (EBTableViewCell *)[nib objectAtIndex:0];
-    return cell;
-  } else if (indexPath.section == 1) {
-    static NSString *EBCellIdentifier_Atrium = @"EBCellIdentifier_Atrium";
-    EBTableViewCell *cell = (EBTableViewCell *)[tableView dequeueReusableCellWithIdentifier:EBCellIdentifier_Atrium];
-    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EBTableViewCell_Atrium" owner:self options:nil];
-    cell = (EBTableViewCell *)[nib objectAtIndex:0];
-    return cell;
-  } else if (indexPath.section == 2){
-    static NSString *EBCellIdentifier_Ventricle = @"EBCellIdentifier_Ventricle";
-    EBTableViewCell *cell = (EBTableViewCell *)[tableView dequeueReusableCellWithIdentifier:EBCellIdentifier_Ventricle];
-    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EBTableViewCell_Ventricle" owner:self options:nil];
-    cell = (EBTableViewCell *)[nib objectAtIndex:0];
-    return cell;
-  } else {
-    static NSString *EBCellIdentifier_GA = @"EBCellIdentifier_GA";
-    EBTableViewCell *cell = (EBTableViewCell *)[tableView dequeueReusableCellWithIdentifier:EBCellIdentifier_GA];
-    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EBTableViewCell_GA" owner:self options:nil];
-    cell = (EBTableViewCell *)[nib objectAtIndex:0];
-    return cell;
-  }
+  NSString *cellID = [NSString stringWithFormat:@"EBTableViewCell_%@", (NSString *)[CellKeys objectAtIndex:indexPath.section]];
+  EBTableViewCell *cell = (EBTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
+  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellID owner:self options:nil];
+  cell = (EBTableViewCell *)[nib objectAtIndex:0];
+  
+  return [self setupCell:cell forIndexPath:indexPath];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  return 3;
+  return [SectionKeys count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -89,21 +86,43 @@
 //}
 
 #pragma mark - Scaffolding
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+      CellKeys = CALL_KEYS;
+      SectionKeys = SECTION_KEYS;
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
+  if ((self = [super initWithCoder:aDecoder])) {
+    CellKeys = CALL_KEYS;
+    SectionKeys = SECTION_KEYS;
+  }
+  return self;
+}
+
+- (void)cancelCreate:(id)sender {
+  if (self.cardiacContext != nil) {
+    NSLog(@"Removing %@ from store.", self.cardiacContext);
+    [self.managedObjectContext deleteObject:self.cardiacContext];
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+      NSLog(@"MOC Error: %@", error);
+      abort();
+    }
+    NSLog(@"Success!");
+  } else {
+    NSLog(@"Cardiac context was nil (%@)", self.cardiacContext);
+  }
+  [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)viewDidLoad {
   [super viewDidLoad];
-//  self.tableView.backgroundView = nil;
-//  self.tableView.separatorColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Separator.png"]];
-//  self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableViewCellBG.png"]];
+
+  
   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
     CGSize result = [[UIScreen mainScreen] bounds].size;
     if (result.height == 480) {
@@ -114,23 +133,26 @@
     }
   }
   
-  if (self.cardiacContextToEdit != nil) {
+  if (self.cardiacContext == nil) {
     NSLog(@"Setting up new Echo Instance");
-    [self.cardiacContextToEdit populateNewEchoInstance];
+    self.cardiacContext = [NSEntityDescription insertNewObjectForEntityForName:@"CardiacContext"
+                                                                   inManagedObjectContext:self.managedObjectContext];
+    self.cardiacContext.managedObjectContext = self.managedObjectContext;
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
       NSLog(@"MOC Error: %@", error);
       abort();
     }
-    NSLog(@"Success! %@", self.cardiacContextToEdit);
+    NSLog(@"Success! %@", self.cardiacContext);
+  } else {
+    // Load data into table cells;
+    NSLog(@"Would load data into cells here");
   }
   
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -13,6 +13,8 @@
 @interface EchoDetailViewController : UITableViewController
 
 @property (nonatomic, strong)NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong)CardiacContext *cardiacContextToEdit;
+@property (nonatomic, strong)CardiacContext *cardiacContext;
+
+- (void)cancelCreate;
 
 @end
