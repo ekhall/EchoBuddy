@@ -41,8 +41,7 @@
   return fetchedResultsController;
 }
 
-- (void)performFetch
-{
+- (void)performFetch {
   NSError *error;
   if (![self.fetchedResultsController performFetch:&error]) {
     FATAL_CORE_DATA_ERROR(error);
@@ -59,6 +58,14 @@
     [self performSegueWithIdentifier:@"createNewEcho" sender:nil];
 }
 
+- (void)editExistingEchoInstance:(id)sender {
+  NSLog(@"Inside Edit method, SenderL (%@)", sender);
+  EchoDetailViewController *controller = [[EchoDetailViewController alloc] init];
+  controller.managedObjectContext = self.managedObjectContext;
+  controller.cardiacContext = sender;
+  [self.navigationController pushViewController:controller animated:YES];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"createNewEcho"]) {
     NSLog(@"inside segue");
@@ -69,7 +76,7 @@
     controller.navigationItem.title = @"Create New Echo";
     
     // Set the cancel button programmatically so I can erase the insert Core Data Entity
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@" Cancel"
                                                                      style:UIBarButtonSystemItemAction
                                                                     target:controller
                                                                     action:@selector(cancelCreate:)];
@@ -79,12 +86,12 @@
                             forState:UIControlStateNormal
                           barMetrics:UIBarMetricsDefault];
     controller.navigationItem.leftBarButtonItem = cancelButton;
-  }
+  } 
 }
 
 #pragma mark - View Scaffoldinga
 - (void)updateLabels {
-  self.totalNumberLabel.text = [NSString stringWithFormat:@"%d", [[self.fetchedResultsController fetchedObjects] count]]; 
+  self.totalNumberLabel.text = [NSString stringWithFormat:@"%d", [[self.fetchedResultsController fetchedObjects] count]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -128,15 +135,18 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  // Remove the empty temp file if it exists because it was created and escaped voiding.
   [self cleanEchoZombies];
   [self performFetch];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  [self.echoListingTableView deselectRowAtIndexPath:[self.echoListingTableView indexPathForSelectedRow]
+                                           animated:YES];
+}
+
+- (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - TableView Datasource
@@ -155,13 +165,11 @@
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setTimeStyle:NSDateFormatterFullStyle];
   [formatter setDateStyle:NSDateFormatterShortStyle];
-  
   cell.detailTextLabel.text = [formatter stringFromDate:context.date];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *cellIdentifier = @"Cell";
-  
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
   if (cell == nil) {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
@@ -170,8 +178,7 @@
   return cell;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     CardiacContext *context = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.managedObjectContext deleteObject:context];
@@ -185,10 +192,14 @@
   }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  self.cardiacContextToEdit = [self.fetchedResultsController objectAtIndexPath:indexPath];
+  [self editExistingEchoInstance:self.cardiacContextToEdit];
+}
+
 #pragma mark - NSFetchedResultsControllerDelegate
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
   NSLog(@"*** controllerWillChangeContent");
   [self.echoListingTableView beginUpdates];
 }
@@ -248,19 +259,16 @@
 }
 
 #pragma mark - Init
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        
     }
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
   fetchedResultsController.delegate = nil;
 }
 
 @end
+

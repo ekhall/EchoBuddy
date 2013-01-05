@@ -36,6 +36,7 @@
 		AE3E70F61687B963009F35FF /* navigation-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = AE3E70F51687B963009F35FF /* navigation-bar.png */; };
 		AE3E70FD1687CF8D009F35FF /* settingsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE3E70FB1687CF8D009F35FF /* settingsIcon@2x.png */; };
 		AE3E70FE1687CF8D009F35FF /* settingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE3E70FC1687CF8D009F35FF /* settingsIcon.png */; };
+		AE507D4216989CF600B7CF79 /* EchoInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE507D4116989CF600B7CF79 /* EchoInfoViewController.m */; };
 		AE91532C1687B1040016AAB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE91532B1687B1040016AAB3 /* UIKit.framework */; };
 		AE91532E1687B1040016AAB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE91532D1687B1040016AAB3 /* Foundation.framework */; };
 		AE9153301687B1040016AAB3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE91532F1687B1040016AAB3 /* CoreGraphics.framework */; };
@@ -86,6 +87,8 @@
 		AE3E70F51687B963009F35FF /* navigation-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar.png"; sourceTree = "<group>"; };
 		AE3E70FB1687CF8D009F35FF /* settingsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsIcon@2x.png"; sourceTree = "<group>"; };
 		AE3E70FC1687CF8D009F35FF /* settingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon.png; sourceTree = "<group>"; };
+		AE507D4016989CF600B7CF79 /* EchoInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EchoInfoViewController.h; sourceTree = "<group>"; };
+		AE507D4116989CF600B7CF79 /* EchoInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EchoInfoViewController.m; sourceTree = "<group>"; };
 		AE9153271687B1040016AAB3 /* EchoBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EchoBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE91532B1687B1040016AAB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AE91532D1687B1040016AAB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -209,6 +212,8 @@
 				AE38E7B4168F885400866951 /* EBTableViewCell */,
 				AE3A5A09168CFBEA001A6411 /* EchoDetailViewController.h */,
 				AE3A5A0A168CFBEA001A6411 /* EchoDetailViewController.m */,
+				AE507D4016989CF600B7CF79 /* EchoInfoViewController.h */,
+				AE507D4116989CF600B7CF79 /* EchoInfoViewController.m */,
 				AE91534E1687B2800016AAB3 /* StudiesListingViewController.h */,
 				AE91534F1687B2800016AAB3 /* StudiesListingViewController.m */,
 				AE91533A1687B1040016AAB3 /* AppDelegate.h */,
@@ -331,6 +336,7 @@
 				AE38E7C016975CBE00866951 /* Ventricle.m in Sources */,
 				AE38E7C316975CD100866951 /* Septum.m in Sources */,
 				AE38E7C616975CDE00866951 /* SeptalDefect.m in Sources */,
+				AE507D4216989CF600B7CF79 /* EchoInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

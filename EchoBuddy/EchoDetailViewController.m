@@ -18,8 +18,27 @@
   NSArray *SectionKeys;
   CardiacContext *cardiacContext;
 }
+@synthesize cardiacContext;
+
+#pragma mark - Edit Methods
+- (void)editEchoInfo:(CardiacContext *)context {
+  UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+  EchoInfoViewController *controller = [mainStoryBoard instantiateViewControllerWithIdentifier:@"EchoInfoView"];
+  controller.managedObjectContext = self.managedObjectContext;
+  controller.cardiacContext = self.cardiacContext;
+  NSLog(@"VC: (%@)", controller);
+  //[self presentViewController:controller animated:YES completion:nil];
+  [self.navigationController pushViewController:controller animated:YES];
+}
 
 #pragma mark - TableView Methods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  if ([indexPath section] == 0) {
+    NSLog(@"1");
+    [self editEchoInfo:self.cardiacContext];
+  }
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
   return [SectionKeys objectAtIndex:section];
 }
@@ -105,14 +124,12 @@
 
 - (void)cancelCreate:(id)sender {
   if (self.cardiacContext != nil) {
-    NSLog(@"Removing %@ from store.", self.cardiacContext);
     [self.managedObjectContext deleteObject:self.cardiacContext];
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
       NSLog(@"MOC Error: %@", error);
       abort();
     }
-    NSLog(@"Success!");
   } else {
     NSLog(@"Cardiac context was nil (%@)", self.cardiacContext);
   }
@@ -120,9 +137,6 @@
 }
 
 - (void)createNewEchoInstance {
-  NSLog(@"Setting up new Echo Instance");
-  
-  // This should probably check for the default first and then delete before creating it.
   CardiacContext *newContext = [NSEntityDescription insertNewObjectForEntityForName:@"CardiacContext"
                                                       inManagedObjectContext:self.managedObjectContext];
   Atrium *leftAtrium = [NSEntityDescription insertNewObjectForEntityForName:@"Atrium"
@@ -131,7 +145,6 @@
                                                       inManagedObjectContext:self.managedObjectContext];
   rightAtrium.onLeftSide = [NSNumber numberWithBool:NO];
   NSSet *atria = [NSSet setWithObjects:leftAtrium, rightAtrium, nil];
-  
   [newContext addAtrium:atria];
   
   NSError *error;
@@ -140,7 +153,6 @@
     abort();
   }
   self.cardiacContext = newContext;
-  NSLog(@"Success! %@", self.cardiacContext);
 }
 
 - (void)populateDummies {
@@ -150,7 +162,6 @@
                                                         inManagedObjectContext:self.managedObjectContext];
     newContext.surname = [surnames objectAtIndex:i];
     newContext.mrn = [NSString stringWithFormat:@"%d", i];
-    NSLog(@"created (%@, %@)", newContext.surname, newContext);
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
       NSLog(@"MOC Error: %@", error);
@@ -162,15 +173,17 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  [self populateDummies];
+  //[self populateDummies];
   
   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
     CGSize result = [[UIScreen mainScreen] bounds].size;
     if (result.height == 480) {
-      self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableViewBG.png"]];
+      self.parentViewController.view.backgroundColor =
+        [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableViewBG.png"]];
     }
     if (result.height == 568) {
-      self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableViewBG-568h.png"]];
+      self.parentViewController.view.backgroundColor =
+        [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableViewBG-568h.png"]];
     }
   }
   
@@ -181,6 +194,11 @@
     NSLog(@"Would load data into cells here");
   }
   
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

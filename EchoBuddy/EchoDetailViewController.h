@@ -10,11 +10,13 @@
 #import "EBTableViewCell.h"
 #import "CardiacContext.h"
 #import "Atrium.h"
+#import "EchoInfoViewController.h"
 
 @interface EchoDetailViewController : UITableViewController
 
 @property (nonatomic, strong)NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong)CardiacContext *cardiacContext;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 - (void)cancelCreate;
 
